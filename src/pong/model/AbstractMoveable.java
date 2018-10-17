@@ -1,5 +1,7 @@
 package pong.model;
 
+import static pong.model.Pong.GAME_HEIGHT;
+
 public class AbstractMoveable extends AbstractPositionable {
 
     private double velX;
@@ -12,6 +14,14 @@ public class AbstractMoveable extends AbstractPositionable {
     public void move(double dT) {
         this.setX(this.getX() + this.velX * dT);
         this.setY(this.getY() + this.velY * dT);
+    }
+
+    public boolean isOutsideY() {
+        boolean bool = false;
+        boolean above = GAME_HEIGHT < getY() + getHeight();
+        boolean below = 0 > getY();
+        bool = !(above || below);
+        return bool;
     }
 
     // Accesors
