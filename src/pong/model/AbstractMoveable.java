@@ -9,9 +9,9 @@ public class AbstractMoveable extends AbstractPositionable {
         super(x, y, width, height);
     }
 
-    public void update() {
-        this.setX(this.getX() + this.velX);
-        this.setY(this.getY() + this.velY);
+    public void move(double dT) {
+        this.setX(this.getX() + this.velX * dT);
+        this.setY(this.getY() + this.velY * dT);
     }
 
     // Accesors

@@ -39,13 +39,16 @@ public class Pong {
     // --------  Game Logic -------------
 
     private long timeForLastHit;         // To avoid multiple collisions
+    private long lastUpdate;
 
     public void update(long now) {
-
+        if (lastUpdate == 0) lastUpdate = now;
+        double dT = (now - lastUpdate) / (Math.pow(10, 6) * 2);
       // TODO Most game logic here, i.e. move paddles etc.
-        this.ball.update();
-        this.leftpaddle.update();
-        this.rightpaddle.update();
+        this.ball.move(dT);
+        this.leftpaddle.move(dT);
+        this.rightpaddle.move(dT);
+        lastUpdate = now;
     }
 
 
