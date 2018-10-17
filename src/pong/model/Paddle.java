@@ -18,8 +18,14 @@ public class Paddle extends AbstractMoveable {
         super(x, y, PADDLE_WIDTH, PADDLE_HEIGHT);
     }
 
-
-
-
-
+    @Override
+    public void move(double dT) {
+        if(this.isOutsideY()){
+            this.reflectY();
+            super.move(dT);
+            this.setVelY(0);
+        }else{
+            super.move(dT);
+        }
+    }
 }
