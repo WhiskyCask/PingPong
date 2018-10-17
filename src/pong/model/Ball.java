@@ -1,5 +1,8 @@
 package pong.model;
 
+import pong.event.Event;
+import pong.event.EventService;
+
 import java.util.Random;
 
 import static pong.model.Pong.GAME_HEIGHT;
@@ -60,11 +63,13 @@ public class Ball extends AbstractMoveable {
     void reflectLeft(IPositionable other) {
         this.setVelX(-this.getVelX());
         this.setX(other.getX() + other.getWidth() + 1);
+        EventService.add(new Event(Event.Type.BALL_HIT_PADDLE));
     }
 
     void reflectRight(IPositionable other) {
         this.setVelX(-this.getVelX());
         this.setX(other.getX() - this.getWidth() - 1);
+        EventService.add(new Event(Event.Type.BALL_HIT_PADDLE));
     }
 
     public X isOutsideX() {
