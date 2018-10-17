@@ -31,5 +31,14 @@ public abstract class AbstractMoveable extends AbstractPositionable {
     public void setVelX(double velX) { this.velX = velX; }
     public void setVelY(double velY) { this.velY = velY; }
 
+    public void reflectX(){
+        this.setVelX(this.getVelX() * -1);
+    }
+
+    public void reflectY(){
+        this.setVelY(this.getVelY() * -1);
+
+    }
+
 }
 

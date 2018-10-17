@@ -45,7 +45,7 @@ public class Ball extends AbstractMoveable {
     @Override
     public void move(double dT) {
         if(this.isOutsideY()){
-            this.setVelY(this.getVelY() * -1);
+            this.reflectY();
         }
 
         super.move(dT);

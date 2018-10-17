@@ -44,7 +44,12 @@ public class Pong {
     public void update(long now) {
         if (lastUpdate == 0) lastUpdate = now;
         double dT = (now - lastUpdate) / (Math.pow(10, 6) * 2);
-      // TODO Most game logic here, i.e. move paddles etc.
+
+        //Collision check
+        if(ball.intersects(leftpaddle) || ball.intersects(rightpaddle)) ball.reflectX();
+
+
+        //Move AbstractMoveables
         this.ball.move(dT);
         this.leftpaddle.move(dT);
         this.rightpaddle.move(dT);
