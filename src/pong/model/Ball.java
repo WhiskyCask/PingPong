@@ -17,9 +17,15 @@ public class Ball extends AbstractMoveable {
     private static final java.util.Random rand = new java.util.Random();
     private static final double velAbs = 0.2;
 
+    public static enum X{
+        LEFT,
+        NA,
+        RIGHT;
+    }
+
     // Constructor
     public Ball() {
-        super(GAME_WIDTH / 2, GAME_HEIGHT / 2, WIDTH, HEIGHT);
+        super((GAME_WIDTH - WIDTH) / 2, (GAME_HEIGHT - HEIGHT) / 2, WIDTH, HEIGHT);
     }
 
     public void init() {
@@ -47,9 +53,7 @@ public class Ball extends AbstractMoveable {
         if(this.isOutsideY()){
             this.reflectY();
         }
-
         super.move(dT);
-
     }
 
 
@@ -63,16 +67,10 @@ public class Ball extends AbstractMoveable {
         this.setX(other.getX() - this.getWidth() - 1);
     }
 
-    public enum X{
-        LEFT,
-        NA,
-        RIGHT;
-    }
-
     public X isOutsideX() {
         X x;
-        boolean right = GAME_WIDTH < getX() + getWidth();
-        boolean left = 0 > getX();
+        boolean right = GAME_WIDTH < this.getX() + this.getWidth();
+        boolean left = 0 > this.getX();
         if(right){
             x = X.RIGHT;
         }

@@ -49,6 +49,17 @@ public class Pong {
         if(ball.intersects(leftpaddle)) { ball.reflectLeft(leftpaddle); }
         else if ((ball.intersects(rightpaddle))) { ball.reflectRight(rightpaddle); }
 
+        //Checking if ball is outside ish
+        if(ball.isOutsideX() != Ball.X.NA) {
+            if (ball.isOutsideX() == Ball.X.LEFT) {
+                pointsRight++;
+            }
+            else if (ball.isOutsideX() == Ball.X.RIGHT) {
+                pointsLeft++;
+            }
+            ball.init();
+        }
+
 
         //Move AbstractMoveables
         this.ball.move(dT);
