@@ -18,17 +18,23 @@ public class Ball extends AbstractMoveable {
     private static final double velAbs = 0.2;
 
     // Constructor
-    public Ball(double x, double y) {
-        super(x, y, WIDTH, HEIGHT);
+    public Ball() {
+        super(GAME_WIDTH / 2, GAME_HEIGHT / 2, WIDTH, HEIGHT);
     }
 
     public void init() {
+        // Get the starting position of the ball
+
+        this.setX((GAME_WIDTH - this.getWidth()) / 2);
+        this.setY((GAME_HEIGHT - this.getHeight()) / 2);
+
         // Get the initial speed of the ball
 
         // Start by getting the initial angle from which the ball will be fired at
         double angle = rand.nextInt(90) - 45;
         int direction = rand.nextInt(1);
         angle += 180 * direction;
+        angle = Math.toRadians(angle);
 
         // Now get the velocity from this angle an velAbs
         this.setVelX(this.velAbs * Math.cos(angle));

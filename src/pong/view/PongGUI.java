@@ -117,7 +117,7 @@ public class PongGUI extends Application {
         Paddle leftPaddle = new Paddle(20, GAME_HEIGHT / 2);//null;
         Paddle rightPaddle = new Paddle(GAME_WIDTH - 20, GAME_HEIGHT / 2);//null;  // For now
 
-        Ball ball = new Ball(GAME_WIDTH / 2, GAME_HEIGHT / 2);
+        Ball ball = new Ball();
 
         // TODO Construct the model
         //
