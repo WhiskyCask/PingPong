@@ -46,7 +46,8 @@ public class Pong {
         double dT = (now - lastUpdate) / (Math.pow(10, 6) * 2);
 
         //Collision check
-        if(ball.intersects(leftpaddle) || ball.intersects(rightpaddle)) ball.reflectX();
+        if(ball.intersects(leftpaddle)) { ball.reflectLeft(leftpaddle); }
+        else if ((ball.intersects(rightpaddle))) { ball.reflectRight(rightpaddle); }
 
 
         //Move AbstractMoveables

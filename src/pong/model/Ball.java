@@ -51,4 +51,14 @@ public class Ball extends AbstractMoveable {
         super.move(dT);
 
     }
+
+    void reflectLeft(IPositionable other) {
+        this.setVelX(-this.getVelX());
+        this.setX(other.getX() + other.getWidth() + 1);
+    }
+
+    void reflectRight(IPositionable other) {
+        this.setVelX(-this.getVelX());
+        this.setX(other.getX() - this.getWidth() - 1);
+    }
 }
