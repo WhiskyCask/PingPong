@@ -52,6 +52,7 @@ public class Ball extends AbstractMoveable {
 
     }
 
+
     void reflectLeft(IPositionable other) {
         this.setVelX(-this.getVelX());
         this.setX(other.getX() + other.getWidth() + 1);
@@ -60,5 +61,27 @@ public class Ball extends AbstractMoveable {
     void reflectRight(IPositionable other) {
         this.setVelX(-this.getVelX());
         this.setX(other.getX() - this.getWidth() - 1);
+    }
+
+    public enum X{
+        LEFT,
+        NA,
+        RIGHT;
+    }
+
+    public X isOutsideX() {
+        X x;
+        boolean right = GAME_WIDTH < getX() + getWidth();
+        boolean left = 0 > getX();
+        if(right){
+            x = X.RIGHT;
+        }
+        else if(left){
+            x = X.LEFT;
+        }
+        else{
+            x = X.NA;
+        }
+        return x;
     }
 }
