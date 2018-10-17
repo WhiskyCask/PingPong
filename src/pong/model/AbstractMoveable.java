@@ -2,7 +2,7 @@ package pong.model;
 
 import static pong.model.Pong.GAME_HEIGHT;
 
-public class AbstractMoveable extends AbstractPositionable {
+public abstract class AbstractMoveable extends AbstractPositionable {
 
     private double velX;
     private double velY;
