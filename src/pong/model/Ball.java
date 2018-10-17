@@ -4,6 +4,7 @@ import java.util.Random;
 
 import static pong.model.Pong.GAME_HEIGHT;
 import static pong.model.Pong.GAME_WIDTH;
+import static pong.model.Pong.BALL_SPEED_FACTOR;
 
 /*
  * A Ball for the Pong game
@@ -15,7 +16,7 @@ public class Ball extends AbstractMoveable {
     public static final double HEIGHT = 40;
 
     private static final java.util.Random rand = new java.util.Random();
-    private static final double velAbs = 0.2;
+    private static final double velAbs = 0.4;
 
     public static enum X{
         LEFT,
@@ -58,12 +59,12 @@ public class Ball extends AbstractMoveable {
 
 
     void reflectLeft(IPositionable other) {
-        this.setVelX(-this.getVelX());
+        this.setVelX(-BALL_SPEED_FACTOR * this.getVelX());
         this.setX(other.getX() + other.getWidth() + 1);
     }
 
     void reflectRight(IPositionable other) {
-        this.setVelX(-this.getVelX());
+        this.setVelX(-BALL_SPEED_FACTOR * this.getVelX());
         this.setX(other.getX() - this.getWidth() - 1);
     }
 
