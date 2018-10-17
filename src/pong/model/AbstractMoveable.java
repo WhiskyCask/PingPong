@@ -17,10 +17,9 @@ public class AbstractMoveable extends AbstractPositionable {
     }
 
     public boolean isOutsideY() {
-        boolean bool = false;
-        boolean above = GAME_HEIGHT > getY() + getHeight();
-        boolean below = 0 < getY();
-        bool = !(above || below);
+        boolean above = GAME_HEIGHT < getY() + getHeight();
+        boolean below = 0 > getY();
+        boolean bool =above || below;
         return bool;
     }
 
