@@ -36,11 +36,4 @@ public class Ball extends AbstractMoveable {
 
     }
 
-    @Override
-    public void update() {
-        this.setX(this.getX() + this.getVelX());
-        this.setY(this.getY() + this.getVelY());
-
-
-    }
 }
