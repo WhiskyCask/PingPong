@@ -13,18 +13,23 @@ public class Paddle extends AbstractMoveable {
     public static final double PADDLE_HEIGHT = 60;
     public static final double PADDLE_SPEED = 0.5;
 
+    public static final enum Type {
+        LEFT,
+        RIGHT;
+    }
 
-    public Paddle(double x, double y) {
+    public Paddle(double x, double y, Type type) {
         super(x, y, PADDLE_WIDTH, PADDLE_HEIGHT);
     }
 
     @Override
     public void move(double dT) {
-        if(this.isOutsideY()){
+        if (this.isOutsideY()){
             this.reflectY();
             super.move(dT);
             this.setVelY(0);
-        }else{
+        }
+        else {
             super.move(dT);
         }
     }
