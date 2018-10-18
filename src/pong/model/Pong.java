@@ -46,8 +46,8 @@ public class Pong {
         double dT = (now - lastUpdate) / (Math.pow(10, 6) * 2);
 
         //Collision check
-        if(ball.intersects(leftpaddle)) { ball.reflectLeft(leftpaddle); }
-        else if ((ball.intersects(rightpaddle))) { ball.reflectRight(rightpaddle); }
+        if(ball.intersects(leftpaddle)) { ball.reflectX(leftpaddle); }
+        else if ((ball.intersects(rightpaddle))) { ball.reflectX(rightpaddle); }
 
         //Checking if ball is outside ish
         if(ball.isOutsideX() != Ball.X.NA) {

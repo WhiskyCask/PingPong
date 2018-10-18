@@ -58,16 +58,13 @@ public class Ball extends AbstractMoveable {
         super.move(dT);
     }
 
-
-    void reflectLeft(IPositionable other) {
-        this.setVelX(-BALL_SPEED_FACTOR * this.getVelX());
-        this.setX(other.getX() + other.getWidth() + 1);
-        EventService.add(new Event(Event.Type.BALL_HIT_PADDLE));
-    }
-
-    void reflectRight(IPositionable other) {
-        this.setVelX(-BALL_SPEED_FACTOR * this.getVelX());
-        this.setX(other.getX() - this.getWidth() - 1);
+    void reflectX(Paddle other) {
+        if (other.getType() == Paddle.Type.LEFT) {
+            this.setVelX(BALL_SPEED_FACTOR * Math.abs(this.getVelX()));
+        }
+        else {
+            this.setVelX(-BALL_SPEED_FACTOR * Math.abs(this.getVelX()));
+        }
         EventService.add(new Event(Event.Type.BALL_HIT_PADDLE));
     }
 

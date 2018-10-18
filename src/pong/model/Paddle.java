@@ -22,7 +22,7 @@ public class Paddle extends AbstractMoveable {
 
     public Paddle(double x, double y, Type type) {
         super(x, y, PADDLE_WIDTH, PADDLE_HEIGHT);
-        this.type = type,
+        this.type = type;
     }
 
     @Override
