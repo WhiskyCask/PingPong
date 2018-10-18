@@ -17,7 +17,7 @@ public class Pong {
 
     public static final double GAME_WIDTH = 600;
     public static final double GAME_HEIGHT = 400;
-    public static final double BALL_SPEED_FACTOR = 1.02;
+    public static final double BALL_SPEED_FACTOR = 1.10;
     public static final long HALF_SEC = 500_000_000;
 
     public final Paddle rightpaddle;

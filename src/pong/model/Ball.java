@@ -3,8 +3,6 @@ package pong.model;
 import pong.event.Event;
 import pong.event.EventService;
 
-import java.util.Random;
-
 import static pong.model.Pong.GAME_HEIGHT;
 import static pong.model.Pong.GAME_WIDTH;
 import static pong.model.Pong.BALL_SPEED_FACTOR;
