@@ -13,7 +13,7 @@ public class Paddle extends AbstractMoveable {
     public static final double PADDLE_HEIGHT = 60;
     public static final double PADDLE_SPEED = 0.5;
 
-    public static final enum Type {
+    public enum Type {
         LEFT,
         RIGHT
     }
@@ -38,5 +38,5 @@ public class Paddle extends AbstractMoveable {
     }
 
     // Acessors
-    Type getType() { return this.type; }
+    public Type getType() { return this.type; }
 }
