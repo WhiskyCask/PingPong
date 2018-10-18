@@ -23,6 +23,7 @@ public class Pong {
     public final Paddle rightpaddle;
     public final Paddle leftpaddle;
     public final Ball ball;
+    public final List<Wall> walls;
 
     private int pointsLeft;
     private int pointsRight;
@@ -34,6 +35,7 @@ public class Pong {
         this.leftpaddle = leftpaddle;
         this.rightpaddle = rightpaddle;
         this.ball = ball;
+        this.walls = Wall.makeCeilingAndFloor(GAME_WIDTH, GAME_HEIGHT);
     }
 
     // --------  Game Logic -------------
@@ -46,6 +48,11 @@ public class Pong {
         double dT = (now - lastUpdate) / (Math.pow(10, 6) * 2);
 
         //Collision check
+        for(Wall wall : walls){
+            if(leftpaddle.intersects(wall)) leftpaddle.collisionWithWall(wall);
+            if(rightpaddle.intersects(wall)) rightpaddle.collisionWithWall(wall);
+        }
+
         if(ball.intersects(leftpaddle)) { ball.reflectLeft(leftpaddle); }
         else if ((ball.intersects(rightpaddle))) { ball.reflectRight(rightpaddle); }
 

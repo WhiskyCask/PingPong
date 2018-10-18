@@ -22,9 +22,9 @@ public class Paddle extends AbstractMoveable {
 
     public Paddle(double x, double y, Type type) {
         super(x, y, PADDLE_WIDTH, PADDLE_HEIGHT);
-        this.type = type,
+        this.type = type;
     }
-
+/*
     @Override
     public void move(double dT) {
         if (this.isOutsideY()){
@@ -34,6 +34,17 @@ public class Paddle extends AbstractMoveable {
         }
         else {
             super.move(dT);
+        }
+    }*/
+
+    public void collisionWithWall(Wall wall){
+        this.setVelY(0);
+        if(wall.getWall() == Wall.Type.TOP){
+            this.setY(1);
+            //this.setVelY(Math.abs(this.getVelY()) * 1);
+        }else if(wall.getWall() == Wall.Type.BOTTOM){
+            this.setY(GAME_HEIGHT-PADDLE_HEIGHT-1);
+            //this.setVelY(Math.abs(this.getVelY()) * -1);
         }
     }
 
