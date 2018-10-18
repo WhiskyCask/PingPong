@@ -15,11 +15,14 @@ public class Paddle extends AbstractMoveable {
 
     public static final enum Type {
         LEFT,
-        RIGHT;
+        RIGHT
     }
+
+    private Type type;
 
     public Paddle(double x, double y, Type type) {
         super(x, y, PADDLE_WIDTH, PADDLE_HEIGHT);
+        this.type = type,
     }
 
     @Override
@@ -33,4 +36,7 @@ public class Paddle extends AbstractMoveable {
             super.move(dT);
         }
     }
+
+    // Acessors
+    Type getType() { return this.type; }
 }
